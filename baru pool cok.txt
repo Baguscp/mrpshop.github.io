@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.row {
+  display: flex;
+}
+
+/*Style Teks Berjalan*/
+marquee {
+  color: #24313d;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px;
+  box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.0);
+  margin-top: -10px;
+  margin-bottom: 5px;
+  border-bottom: solid 2px;
+}
+
+/*Informasi Terbaru*/
+.info {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFF;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.0);
+  border-radius: 20px;
+  padding: 1px;
+  background: #1E90FF;
+  width: 13%;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+  margin-top: 5px;
+}
+
+.text {
+  text-align:justify;
+  color: #474747;
+  border-bottom: #8a888c solid 0.5px;
+  padding-bottom: 10px;
+  padding-left:5px;
+  padding-right:5px;
+  font-family: helvetica;
+  font-size: 13px;
+  line-height:20px;
+  margin-bottom: 20px;
+}
+
+.text1 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #673ab7;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+/*Style Banner*/
+img{
+border-radius: 50px;
+}
+
+.slideshow-container {
+  position: relative;
+  margin-top: 0px;
+}
+
+/*Style Titik Tiga bawah Banner*/
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 0px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.active {
+  background-color: #00BFFF;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 0.5s;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*Style Icon*/
+.button {
+  padding: 5px 5px 0px 5px;
+  font-size: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: #00BFFF;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  width: 18%;
+  margin: 7px;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);  
+  font-weight: bold;
+}
+
+.image {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.dropdown {
+  font-size: 10px;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 18%;
+  font-weight: bold;
+  display: inline;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+  z-index: 1;
+  width: auto;
+  background: #000;
+  border-radius: 10px;
+  margin-top: 23%;
+  margin-left: -11px;
+  margin-right: 6.5px;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+  z-index: 1;
+  width: auto;
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 27.5%;
+
+}
+
+
+.button:hover {background-color: #fff;color: #24313d}
+.image:hover {shadow: #fff}
+
+.button:active {
+  background-color: #fff;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.mybutton{
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.0);  
+  margin-top: 10px;
+  margin: 4px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 0px;
+  width: auto;
+  margin-bottom: 10px; 
+}  
+
+.tittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #1E90FF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.subtittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #1E90FF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.tooltip a {
+  cursor: none;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  max-width: 90%;
+  text-align: center;
+  border-radius: 0px;
+  position: absolute;
+  display: block;
+  z-index: 1;
+  left: 5%;
+  margin-top: 10px;
+  margin-left: 0px;
+  
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.label {
+    background-color:#1E90FF;
+border-radius:100px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	text-decoration:none;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    font-weight: bold;
+    padding: 4px;
+    width: 50px;
+    margin-top: -20px;
+}
+
+.label:hover {background-color: #87CEFA;color: #fff}
+
+.imgtool {
+margin-left: 10px;
+box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+padding-left: 0px;
+padding-right:0px;
+}
+
+.img1 {
+  flex: auto;
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  padding-top: 5px;
+  width: 10%;
+}
+
+.img2 {
+  flex: auto;
+  width: 30%;
+}
+
+.flashsale {
+  text-align: center;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+  border: #24313d solid 3px;
+  font-size: 12px;
+  margin-top: 10px;
+  background: #fff;
+  color: #ff0000;
+  border-radius: 20px;
+  width: 50%;
+  padding-bottom: 2px;
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-left: 0px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);  
+}
+
+.sidenav a {
+  padding: 0px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #673ab7;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #673ab7;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}}
+
+
+
+</style>
+
+</div>
+<!----Sip>
+
+
+
+<!--JAVA SCRIPT SLIDE-->
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000);
+}
+</script>
+<!----Sip>
+
+<!--Java Script Flash Sale by MRP Shope-->
+<script>
+// Pasang Waktu Tujuan (Akhir)
+var countDownDate = new Date("August 10, 2021 15:37:25").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+   
+  var distance = countDownDate - now;
+    
+  // Perhitungan waktu untuk Hari, Jam, Menit dan Detik
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Yang ditampilkan diberi ID bernama id="MRP Shope", kalau mau ganti, ganti semua yang bernama MRP Shope
+  document.getElementById("MRP Shope").innerHTML = days + " Hari | " + hours + " Jam | "
+  + minutes + " m | " + seconds + " s ";
+    document.getElementById("RP Shope").style.fontWeight = "bold";
+    
+  // Teks Ketika Hitungan Habis
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("MRP Shope").innerHTML = "HABIS";
+  }
+}, 1000);
+
+
+</script>
+<!----Sip--->
+
+
+<!--JAVA SCRIPT POP UP LAINNYA-->
+<script>
+function openNav() {
+  document.getElementById("lainlain").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("lainlain").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT POP UP INFORMASI-->
+<script>
+function bukanav() {
+  document.getElementById("info").style.width = "100%";
+}
+function tutupnav() {
+  document.getElementById("info").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT JAM-->
+<script>
+setInterval(myTimer, 1000);   
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+  document.getElementById("demo").style.fontWeight = "bold";
+}
+</script>
+<!---Sip-->
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!--TEKS BERJALAN-->
+<div class="mybutton">
+<center><marquee scrollamount="5">MRP Shope Buka Jam 08.00 - 22.00</marquee></center>
+<!----Sip--->
+
+
+  <!--CS-->
+     <a style=" background-color:#1E90FF;
+	border-radius:100px;
+    margin-left: 0px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	text-decoration:none;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    " href="https://wa.me/6288217966965"><b>Chat Admin</b></a>
+  
+  <!--JAM-->
+    <p style="
+    position: absolute;
+    display: block-inline;
+    margin-top: -20px;
+    right: 15px;
+    background-color:#1E90FF;
+	border-radius:100px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	text-decoration:none;
+    margin-left: 5px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    "id="demo"><b>loading...</b></p>
+    
+    <!--QRIS-->
+    <center>
+	<div class="label">
+	<center><div class="tooltip" >QRIS
+	<span class="tooltiptext">		 
+	<img class="imgtool" src="https://i.ibb.co/Kh4Y2XW/IMG-20210911-201749.jpg" width="85%" max-width="100%"> 
+    </span>
+    </center>
+</div></div></div></div>
+<!----Sip--->
+<!---KOTAK 1--->
+<!---BARIS 1--->
+<center>
+<center><p class="subtittle">Isi Ulang</center>
+<div class="mybutton">
+<div class="dropdown">
+<button class="button"><img class="image" src="https://i.ibb.co/M9FQg7F/pulsa.png"></a>Pulsa</button>
+
+<!---BAGIAN PULSA--->
+<div class="dropdown-content">
+<center><p class="tittle">Pulsa</center>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Telkomsel"><img class="image" src="https://i.ibb.co/yStNj6d/tsel.png"></a>Telkomsel</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/Rps7P2X/isat.png"></a>Indosat</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Axis"><img class="image" src="https://i.ibb.co/CmyCsX1/axis.png"></a>Axis</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/XL"><img class="image" src="https://i.ibb.co/Dg6rY2N/xl.png"></a>XL</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Smartfrend"><img class="image" src="https://i.ibb.co/VDdj9qm/smart.png"></a>Smartfren</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/3%20(tri)"><img class="image" src="https://i.ibb.co/nPkQh48/three.png"></a>Three</button>
+
+</div></div>
+
+<!---BAGIAN INTERNET--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/M9FQg7F/pulsa.png">Credit intrnational</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Package International</p>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Telkomsel"><img class="image" src="https://i.ibb.co/tQBNk3x/download-1.png"></a>China Top Up</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/gDSMW6f/download.jpg"></a>Maxis (Malaysia)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/j4hYfyN/download-2.png"></a>Digi (Malaysia)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/y6mTZzm/download-2.jpg"></a>Celcom (Malaysia)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/1X5sCd9/download-3.png"></a>U Mobile (Malaysia)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/6DPhTHN/download-4.png"></a>TuneTalk (Malaysia)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/hDDdCHz/download-5.png"></a>Smart Pinoy (philippines)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/r7Cj8VD/download-6.png"></a>philippines-SMART</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/KywJgXj/download-3.jpg"></a>Globe (philippines)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/qjJ9NqM/download-7.png"></a>Sun Telecom (philippines)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Axis"><img class="image" src="https://i.ibb.co/X52fWhM/rhmnkfaqsarxpalraaad.png"></a>XOX (philippines)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/XL"><img class="image" src="https://i.ibb.co/MsCbmPh/download-8.png"></a>Singtel (singapura)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Smartfrend"><img class="image" src="https://i.ibb.co/BZ0k0nD/download-4.jpg"></a>Starhub (singapura)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/3%20(tri)"><img class="image" src="https://i.ibb.co/MPthzYw/download-9.png"></a>M1 (singapura)</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/3%20(tri)"><img class="image" src="https://i.ibb.co/SJ732Pn/images.png"></a>thailand top up</button>
+
+</div></div>
+
+
+<!---BAGIAN TELEPON SMS--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/gDBF4Dj/top-up-game.png">Joki Game</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Credit Internasional</p>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Telkomsel"><img class="image" src="https://i.ibb.co/yStNj6d/tsel.png"></a>Telkomsel</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/im3"><img class="image" src="https://i.ibb.co/Rps7P2X/isat.png"></a>Indosat</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Axis"><img class="image" src="https://i.ibb.co/CmyCsX1/axis.png"></a>Axis</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/XL"><img class="image" src="https://i.ibb.co/Dg6rY2N/xl.png"></a>XL</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Smartfrend"><img class="image" src="https://i.ibb.co/VDdj9qm/smart.png"></a>Smartfren</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/3%20(tri)"><img class="image" src="https://i.ibb.co/nPkQh48/three.png"></a>Three</button>
+</div></div>
+
+
+<!---BAGIAN TOPUP GAME--->
+<div class="dropdown">
+
+<button class="button">
+
+<img class="image" src="https://i.ibb.co/gDBF4Dj/top-up-game.png">TopUP</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">TopUp Game</p>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Mobile%20Legend"><img class="image" src="https://i.ibb.co/17K6b1y/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/PUBG%20M"><img class="image" src="https://i.ibb.co/gyVwzQ8/pubg.png"></a>PUBG M</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/COD%20M"><img class="image" src="https://i.ibb.co/4grjQBz/comd.png"></a>COD M</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Free%20Fire"><img class="image" src="https://i.ibb.co/v4X7Yyy/fff.png"></a> Free Fire</button></div></div>
+
+
+<!--BARIS 2-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/5jMB5Vx/emoney.png">Ewallet</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">TopUp Uang Elektronik</p>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Dana"><img class="image" src="https://i.ibb.co/tBmjVhh/dana.png"></a>Dana</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Shopee%20Pay"><img class="image" src="https://i.ibb.co/pynhkBh/shopeepay.png"></a>ShopeePay</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/OVO"><img class="image" src="https://i.ibb.co/dDqgKJp/ovo-1.png"></a>OVO</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Link%20Aja"><img class="image" src="https://i.ibb.co/QjvtNc9/linkaja.png"></a>LinkAja</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Gopay"><img class="image" src="https://i.ibb.co/QmBKXLV/gopay.png"></a>GoPay</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Grab"><img class="image" src="https://i.ibb.co/yhw2wFW/Grab.png"></a>Grab</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Brizzi"><img class="image" src="https://i.ibb.co/nk9nyZ5/brizzi.png"></a>Brizzi</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Mobile%20E-Toll"><img class="image" src="https://i.ibb.co/RSpjtDM/images-1.jpg"></a>Mandiri E-Tool</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Bukalapak"><img class="image" src="https://i.ibb.co/1bpyshg/download.png"></a>Buka Lapak</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Saku"><img class="image" src="https://i.ibb.co/7b31TCj/Salinan-dari-icon-16.png"></a>iSaku</button>
+</div></div>
+
+
+<!---BAGIAN TAGIHAN-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/BZ2z3mH/Tagiham.png">Tagihan</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">Bayar Tagihan</p>
+<center>
+<button class="button"><a href="https://mrpshope.000webhostapp.com/PLN"><img class="image" src="https://i.ibb.co/xhp6xpq/pln.png"></a>PLN</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/BPJS"><img class="image" src="https://i.ibb.co/sqbptrb/bpjs.png"></a>BPJS</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Indihome"><img class="image" src="https://i.ibb.co/8bHTpWs/indi.png"></a>Indohome</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/PDAM"><img class="image" src="https://i.ibb.co/98hgw9C/pdam.png"></a>PDAM</button></div></div>
+
+<!---BAGIAN VOUCHER-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/P4jYdc0/vocher-digital.png">Voucher</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">Voucher Game</p>
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/drtFH9d/unip.png"></a>UniPin</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Steam"><img class="image" src="https://i.ibb.co/hYYFJ6Z/steam.png"></a>Steam</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Play%20Card"><img class="image" src="https://i.ibb.co/Wk7cZzP/gpc.png"></a>Play Card</button>
+
+<button class="button"><a href="https://mrpshope.000webhostapp.com/Garena%20Shell"><img class="image" src="https://i.ibb.co/MNx088y/grn.png"></a>Garena Shell</button></div></div>
+
+<div class="dropdown">
+<button class="button"><a onclick="openNav()"><img class="image" src="https://i.ibb.co/XtD2L5t/lainya.png"></a>Lainnya</button>
+
+
+<!--LAIN-LAIN-->
+<div id="lainlain" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><b>&times;</b></a>
+<br>
+<br>
+<center><p class="subtittle">TopUp Game</p></center>
+
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/produk/dragon-raja-sea-id-694531"><img class="image" src="https://bukaolshop.s3-id-jkt-1.kilatstorage.id/66735/562445900s.jpg"></a>PUBG</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/zS5Qq54/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/9GNXDmk/pubg.png"></a>PUBG</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/zS5Qq54/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<center><p class="subtittle">TopUp Game</p></center>
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/9GNXDmk/pubg.png"></a>PUBG</button>
+
+<button class="button"><a href="https://app.bukaolshop.com/toko/mrpshop/none/digital/66001"><img class="image" src="https://i.ibb.co/zS5Qq54/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/9GNXDmk/pubg.png"></a>PUBG</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/zS5Qq54/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/WnKB8n8/ff.png"></a>Free Fire</button>
+</center></div></div></div>
+<!---SIP-->
+
+
+<!--INFORMASI-->
+<center><p class="subtittle">Informasi Terbaru</center></center>
+<div class="mybutton">
+<p class="info">Info</p>
+<p class="text">
+<b>2 September 2021</b><br/>Halo sultan, selamat datang di MRP Shope, transaksi terpantau lancar silahkan di gasss, jangan lupa untuk memberikan ulasan pada setiap pembelian sukses, terima kasih</p>
+
+<p class="info">Info</p>
+<p class="text">
+<b>1 September 2021</b><br/>Pembuatan Apk MRP Shope</p>
+
+<div id="info" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="tutupnav()"><b>&times;</b></a>
+
+<p class="info">Info</p>
+<p class="text">
+<b>7 September 2021</b><br/>Informasi lengkap sudah dibuat</p>
+
+</div>
+<center>
+<a onclick="bukanav()">
+<button class="button" style="width:100%;padding: 8px;font-size:12px;">Lainnya</button></a>
+<br>
+
+</head>
+</html>
